@@ -1,0 +1,658 @@
+
+:root {
+    --color-primary: #eb2f64;
+    --color-primary-light: #FF3366;
+    --color-primary-dark: #BA265D;
+
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+
+    --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+    --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
+
+    --line: 1px solid var(--color-grey-light-2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 60%; /*1 rem=10px, 10px/16px=62.5%*/
+}
+
+body {
+    font-family:  sans-serif, "Open Sans";
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-grey-dark-2);
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh; // este 100% din viewport care poate fi modificata ulterior
+}
+
+.container {
+    max-width: 12 rem;
+    margin: 8rem;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+    min-height: 50rem;
+}
+
+.header  {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var()var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+    flex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-view {
+    flex: 1;
+}
+
+/* //////////////////////
+LOGO//////////////////////*/
+
+.logo {
+    height: 3.25rem;
+    margin-left: 2rem;
+}
+
+/* //////////////////////
+SEARCH//////////////////////*/
+
+.search {
+    flex: 0 0 40%;
+
+    display: flex; /* toate astea 3 sunt pentru a centra un item pe main si cross axis*/
+    justify-content: center; /* toate astea 3 sunt pentru a centra un item pe main si cross axis*/
+    align-items: center; /* toate astea 3 sunt pentru a centra un item pe main si cross axis*/
+}
+
+.search-input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    /*safiefaraborder*/padding: 1rem 3rem;
+    /*saaibapaddingtopsibottommicsimaimareinlaterale*/border-radius: 100px;
+    width: 90%;
+    /*tresafiecatmaiintinsinheader*/transition: all .2s;
+    /*casafacatrecereadelabutonstaticlabutonanimatsimaimarecandeclicked*/margin-right: -3.25rem;
+     /*ca sa poata primi svgul cu iconita de search in dreapta, pana se muta svgul peste input*/:;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+.search-input:focus {
+    outline: none; /*asa se face animatia de marire a ceea ce apesi, cand apesi*/
+    width: 100%; /*cand apesi, butonul de search se mareste si*/
+    background-color: var(--color-grey-light-3); /*are o culoare un pic diferita, pt a evidentia actiunea*/
+}
+
+.search-input::-webkit-input-placeholder {
+    font-weight: 100;
+    background-color: var(--color-grey-light-3);
+}
+
+.search-input:focus + .search__button {
+    background-color: var(--color-grey-light-3);
+}
+
+.search__button {
+    border: none;
+    background-color: var(--color-grey-light-2); /*vrem sa aiba aceasi culoare ca si spatiul de search*/
+}
+
+.search__button:focus {
+   outline: none; /*pt a indeparta focusul*/
+}
+
+.search__button:active {
+    transform: translateY(2px);
+}
+
+.search-icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3); /* fill se foloseste pentru a schimba culoarea svgului direct in css*/
+}
+
+/* //////////////////////
+USER NAVIGATION//////////////////////*/
+
+.user-nav {
+    align-self: stretch;
+
+    display: flex;
+    align-items:center;
+}
+
+.user-nav__icon-box {
+    display: flex;
+    align-items: center;
+    position: relative; 
+}
+
+.user-nav__icon {
+    height: 2.5rem;
+    width: 2.5rem; 
+    fill: var(--color-grey-dark-2);    
+}
+
+.user-nav__notification {
+    font-size: .8rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    color: #fff;
+    background-color: var(--color-primary);  
+    position: absolute; 
+    top: -1.5rem;
+    right: 2rem; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.user-nav__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;  
+    margin-right: 1rem;
+}
+
+
+.user-nav__icon-box,
+.user-nav__user {
+    padding: 0 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.user-nav__icon-box:hover,
+.user-nav__user:hover {
+    background-color: var(--color-grey-light-2);
+    height: 100%;
+}
+
+/* //////////////////////
+SIDE NAVIGATION//////////////////////*/
+
+.side-nav {
+    font-size: 1.4rem;
+    margin-top: 3.5rem;
+    list-style: none;
+}
+
+.side-nav__item {
+    position: relative;
+}
+
+.side-nav__item:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+/*creem bara roz pe hover de unde animatia va incepe catre dreapta*/
+/*se pare ca tre sa avem continut gol*/
+/*acest tip de pozitionare si sus, la parinte item simplu, relative*/
+/*top si left 0 nu le explica, ma intreb de ce le trece*/
+/*clar, ca sa acopere toata inaltimea de text a meniului*/
+/*latimea, cat sa se vada bara*/
+/*culoarea roz*/
+.side-nav__item::before { 
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary); 
+    transform: scaleY(0); /*nu se misca faace trecerea catre hoverul de mai jos care se va misca*/
+    transition: transform .2s,
+                width .4s cubic-bezier(1,0,0,1) .2s,
+                background-color .1s;
+                
+}
+
+.side-nav__item:hover::before,
+.side-nav__item--active::before {
+    transform:scaleY(1);/*cu asta se misca*/
+    width: 100%; /*daca mai sus si fara asta se misca pe latimea celor 3 pixeli, acum se misca pe tot itemul*/
+   
+}
+
+.side-nav__item:active::before {
+    background-color: var(--color-grey-dark-1);
+}
+
+.side-nav_link:link,
+.side-nav_link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+    position: relative;/*asta este pentru ca urmeaza sa punem un z-index*/
+    z-index: 10; /*pt ca scrisul sa ramana vizibil peste bara roz, il punem on the top*/
+
+    display: flex;
+    align-items: center;
+}
+
+.side-nav_icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor;
+}
+
+.legal {
+    font-size: 1.2rem;
+    color: var(--color-grey-light-4);
+    text-align: center;
+    padding: 2.5rem;
+}
+
+/* //////////////////////
+GALLERY//////////////////////*/
+
+
+.gallery {
+    display: flex;
+}
+
+.gallery__photo {
+    width: 100%;
+    display: block;
+}
+
+/* //////////////////////
+HOTEL OVERVIEW//////////////////////*/
+
+.overview {
+    display: flex; /*aranjam obiectele in acelasi rand*/
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2);
+}
+
+.overview__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+}
+
+.overview__stars {
+    margin-right: auto; /*creem spatiul mare intre un elemnt si altul, fecare elem intinzandu-se doar pe spatiul sau */
+    display: flex; /*pt ca era un pic de margine alba sub stele. flexul asta a sters-o.*/
+}
+
+.overview__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-item: center;
+}
+
+.overview__icon-star,
+.overview__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary);
+}
+
+.overview__icon-location {
+    margin-right: .5rem;
+}
+
+.overview__rating {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0 2.25rem;
+    margin-left: 3rem; /*pt a se departaja de location*/
+    align-self: stretch;/*pt ca nu ocupa tot spatiul de sus si jos, se foloseste nu heght 100% ci align self stretch*/
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /*pt ca aseza average cu votes pe aceasi linie, column ca sa stea unul sub altul*/
+}
+
+.overview__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;
+}
+
+.overview__rating-count {
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+
+/* //////////////////////
+HOTEL OVERVIEW//////////////////////*/
+
+.btn-inline {
+    border: none; /*un buton vine intoteauna cu un border*/
+    color: var(--color-primary);
+    font-size: inherit;
+    border-bottom: var(--line); /*tragem o linie sub cuvant*/
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer; /*punem cursor*/
+    transition: all .2s; /*punem tranzitie frumoasa, pentru toate fazele 2 sec*/
+}
+
+.btn-inline span {
+    margin-left: 5px;
+    transition: margin-left .2s;
+}
+
+.btn-inline:hover span {
+    margin-left: 8px;
+    
+}
+
+.btn-inline:hover {
+    color: var(--color-grey-dark-1);
+
+}
+
+.btn-inline:focus {
+    outline: none;
+    animation: pulsate 1s infinite; 
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.3);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+}
+
+/* //////////////////////
+DETAIL//////////////////////*/
+
+.detail {
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-2);
+    font-size: 1.4rem;
+}
+
+.description {
+    
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+}
+
+.user-reviews {
+    flex: 1; /*am pus fle la .description de 60% dar tre sa trec si aici flex:1 altfel ramane mic .user-reviews*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* //////////////////////
+PARAGRAPH//////////////////////*/
+
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+/* //////////////////////
+LIST//////////////////////*/
+.list {
+    list-style: none; /*scapam de rotunduletele ulului*/
+    margin: 3rem 0; /*aranjam toate marginile si paddingurile*/
+    padding: 3rem 0;
+    border-top: var(--line); /*punem linia sus si jos*/
+    border-bottom: var(--line);
+    
+    display: flex; /*le aranjeaza in haos*/
+    flex-wrap: wrap; /*le dispune unul in spatele altuia*/
+}
+
+.list__item {
+    flex: 0 0 50%; /*ii da fiecaruia 50% din width si aseaza in doua coloane distrubuite egal, 4 si 4*/
+    margin-bottom: .7rem;
+}
+
+
+/*creem sagetelele direct din css, nu le mai adaugam in html prin background img, folosind elementul before*/
+.list__item::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;/*se pun pentru a face cat mai mare iconul*/
+    height: 1rem;
+    margin-right: .7rem; /*margine in dreapta fata de cum vine textul. before este in fata textului */
+    
+    /*older browsers*/
+    background-image: url(../img/chevron-thin-right.svg); /*daca punem svgul ca background image nu prea putem sa il stilizam, sa ii adaugam culoare de ex.*/
+    background-size: cover;
+    
+
+    /*newer browsers - masks*/
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+    background-image: none;
+    }
+}  
+
+/* //////////////////////
+RECOMMEND//////////////////////*/
+
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+}
+
+.recommend__count {
+    margin-right: auto;
+}
+
+.recommend__friends {
+    display: flex; /*asta a fost adaugata cand faceam siteul responsive, pt ca pozele coborau una sub alta si display flexul le tine impreuna indiferent de rezolutia ecranului*/
+}
+
+.recommend__photo {
+    box-sizing: content-box; /*pt ca borderul ia din poza, content box adauga margin si padding doar boxurilor fara sa ia din continutul fotografiilor*/
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.recommend__photo:not(:last-child) {
+    margin-right: -1.5rem;
+}
+
+/* //////////////////////
+REVIEWS//////////////////////*/
+
+.review::before {
+    content:"\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    z-index: 1;
+    
+}
+
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 4.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.review__text {
+    z-index: 10;
+    position: relative;
+}
+
+.review__user {
+    display: flex;
+    margin-top: 3rem;
+    align-items: center;
+}
+
+.review__photo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.review__user-box {
+    font-size: 1rem;
+    margin-right: auto;
+    margin-left: 3rem;
+}
+
+.review__user-name {
+    text-transform: uppercase;
+    font-weight: 600;
+    
+}
+
+.review__user-date {
+    color: var(--color-grey-dark-3);
+}
+
+.review__rating {
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--color-primary);
+}
+
+/* //////////////////////
+CALL TO ACTION//////////////////////*/
+
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+
+}
+
+.cta__book-now {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 3.5rem;
+}
+
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn__visible,
+.btn__invisible {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all .2s;
+}
+
+.btn__visible {
+    padding: 2rem 7.5rem;
+}
+
+.btn__invisible {
+    position: absolute;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%;
+}
+
+.btn:hover {
+    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+}
+
+.btn__visible:hover {
+    transform: translateY(100%);
+} 
+
+.btn__invisible:hover {
+    top: 0;
+}
+
+.btn:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+}
